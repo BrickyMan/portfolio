@@ -227,6 +227,9 @@ nav ul li:not(.current-tab):hover {
   background-color: #21005e;
   background: linear-gradient(163deg, rgba(166, 34, 195, 0.9) 0%, rgba(45, 87, 253, 0.95) 100%);
 }
+#bioField span {
+  color: #ff9900;
+}
 
 #worksField {
   background-color: rgba(0, 33, 77, 0.95);
@@ -265,7 +268,7 @@ nav ul li:not(.current-tab):hover {
   color: #1eff00;
 }
 #contactsField a:hover {
-  color: #ff9900;
+  color: #b84eff;
 }
 
 .contacts-wrapper {

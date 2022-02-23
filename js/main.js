@@ -51,25 +51,25 @@ for(let i = 0; i < tabs.length; i++) {
 				homeLaunch();
 			}
 			homeInput.focus();
-			main.setAttribute('style', 'background-image: url("../img/10.gif")');
+			main.setAttribute('style', 'background-image: url("img/10.gif")');
 		}
 		else if (i == 1) {
 			if (!bioLaunched) {
 				bioLaunch();
 			}
-			main.setAttribute('style', 'background-image: url("../img/9.gif")');
+			main.setAttribute('style', 'background-image: url("img/9.gif")');
 		}
 		else if (i == 2) {
 			if (!worksLaunched) {
 				worksLaunch();
 			}
-			main.setAttribute('style', 'background-image: url("../img/15.gif")');
+			main.setAttribute('style', 'background-image: url("img/15.gif")');
 		}
 		else if (i == 3) {
 			if (!contactsLaunched) {
 				contactsLaunch();
 			}
-			main.setAttribute('style', 'background-image: url("../img/5.gif")');
+			main.setAttribute('style', 'background-image: url("img/5.gif")');
 		}
 	}
 }

@@ -1,0 +1,15 @@
+let	bioLaunched = false;
+	bioOutput = document.querySelector('#bio'),
+	bioTxtEng = "NAME\n	Brick's Man - is a kinda brand coming from alias.\n\nSYNOPSIS\n	I am programmer. Right now I'm focused on frontend-development, UI/UX, self-improvement in soft and hard skills.\n\nEDUCATION\n	2014-2019: ККМТ. I graduated from college as a missilery engineer.\n	2019-2020: МГОТУ. I was forced to leave the university, so I have incomplete higher education as roboticist.\n	2021-pres.: School 21. In september 2021 I got to Russian branch of French 'School 42' in Moscow.\n\nEXPIRIENCE\n	2017-2018: Assistant in composite laboratory 'КОМПОЗИТ'.\n	2020-2021: Individual programming teacher at online-school 'Hello World'.\n	2021-2022: Programming teacher in groups at online-school 'Алгоритмика'.\n\nHARDSKILLS\n	- Web: HTML, CSS (Sass / SCSS), JavaScript (jQuery), basic PHP.\n	- Additional: Python, C.\n	- Software: Git, UNIX-like OS, UNIX Shell, CMD, VirtualBOX.\n	- Confident knowledge of design, UI/UX and graphic software (Photoshop, Illustrator, Xd, Figma).\n	- Blind keyboard typing as a bonus. :)\n\nSOFTSKILLS\n	- English B1 (Intermediate).\n	- Expirience of public speech and presentation.\n	- I'm good in teamwork and on my own both.\n	- Deadlines don't scare me.\n	- I'm initiative and ambitious."
+	bioTxtRus = "НАЗВАНИЕ\n	Brick's Man - это своего рода бренд, происходящий от псевдонима.\n\nСИНОПСИС\n	Я программист. В данный момент я сфокусирован на фронтенд-разработке, UI/UX, самосовершенствовании и развитии как в хард, так и софт скиллах.\n\nОБРАЗОВАНИЕ\n	2014-2019: ККМТ. Я окончил колледж по специальности ракетостроение.\n	2019-2020: МГОТУ. Я был вынужден бросить университет, так что у меня есть неоконченное высшее образование робототехника.\n	2021-н.в.: Школа 21. В сентябре 2021 я поступил в российский филиал французской Школы 42 в Москве.\n\nОПЫТ\n	2017-2018: Сотрудник лаборатории 'КОМПОЗИТ'.\n	2020-2021: Преподаватель индивидуальных уроков в онлайн-школе программирования 'Hello World'.\n	2021-2022: Преподаватель программирования в группах в школе 'Алгоритмика'.\n\nHARDSKILLS\n	- Web: HTML, CSS (Sass / SCSS), JavaScript (jQuery), базовый PHP.\n	- Дополнительно: Python, C.\n	- Софт: Git, UNIX-подобные ОС, UNIX Shell, CMD, VirtualBOX.\n	- Уверенные знания в дизайне, UI/UX и графическом ПО (Photoshop, Illustrator, Xd, Figma).\n	- В качестве бонуса могу добавить навык слепой печати. :)\n\nSOFTSKILLS\n	- Английский уровня B1 (Intermediate).\n	- Опыт публичных выступлений и проведения презентаций.\n	- Для меня одинаково комфортно работать в одиночку и в команде.\n	- Дедлайны меня не пугают.\n	- В работе я проявляю инициативу и амбиции."
+
+function bioLaunch() {
+	bioLaunched = true;
+	bioOutput.innerHTML = '';
+	if (language == 'eng') {
+	 	terminalType(bioOutput, bioTxtEng, 2, nothingToDo);
+	}
+	else {
+		terminalType(bioOutput, bioTxtRus, 2, nothingToDo);
+	}
+}

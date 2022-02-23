@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Портфолио Bricksman</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap" rel="stylesheet"> 
+</head>
+<body>
+	<main style="background-image: url('../img/10.gif')">
+
+		<div class="terminal" id="terminal">
+
+			<header class="terminal-top">
+				<nav>
+					<ul>
+						<li class="terminal-tab current-tab">Home</li>
+						<li class="terminal-tab">Bio</li>
+						<li class="terminal-tab">Works</li>
+						<li class="terminal-tab">Contacts</li>
+					</ul>
+				</nav>
+				<button class="exit-btn" id="exitBtn">X</button>
+			</header>
+
+			<div class="terminal-field current-field" id="homeField">
+				<p class="terminal-pre"><span>guest@BricksMan-portfolio</span>: ~$ logo</p>
+				<pre id="logo"></pre>
+				<p class="terminal-pre"><span>guest@BricksMan-portfolio</span>: ~$ lsbrkmn</p>
+				<pre id="homeLsbrkmn"></pre>
+				<input class="terminal-input" id="homeInput" type="text" maxlength="15" readonly>
+				<pre id="homeAnswer"></pre>
+			</div>
+
+			<div class="terminal-field" id="bioField">
+				<p class="terminal-pre"><span>guest@BricksMan-portfolio</span>: ~$ man bricksman</p>
+				<pre id="bio"></pre>
+			</div>
+
+			<div class="terminal-field" id="worksField">
+				<p class="terminal-pre"><span>guest@BricksMan-portfolio</span>: ~$ sh works</p>
+				<p id="worksPreText">Choose a project:</p>
+				<div class="works-list">
+					<!-- <button id="listBtnLanding" class="works-list_btn">&lt; Brickify player (Web) &gt;</button> -->
+					<button id="listBtnCa" class="works-list_btn">&lt; Cellular automaton (JS) &gt;</button>
+					<!-- <button id="listBtnChat" class="works-list_btn">&lt; Silly chat (Python) &gt;</button> -->
+					<button id="listBtnFdf" class="works-list_btn">&lt; FDF 42 (C) &gt;</button>
+				</div>
+				<pre class="works-img" id="landingImg"></pre>
+				<pre class="works-img" id="caImg"></pre>
+				<pre class="works-img" id="chatImg"></pre>
+				<pre class="works-img" id="fdfImg"></pre>
+				<pre id="workDescription"></pre>
+				<div id="workBtns" hidden>
+					<a target="_blank" id="workDemo" href="#">&lt; Demo &gt;</a>
+					<a target="_blank" id="workLink" href="#">&lt; GitHub &gt;</a>
+				</div>
+			</div>
+			
+			<div class="terminal-field" id="contactsField">
+				<p class="terminal-pre"><span>guest@BricksMan-portfolio</span>: ~$ cat contacts</p>
+				<div class="contacts-wrapper">
+					<div class="contacts-wrapper_item">
+						<pre id="tgLogo"></pre>
+						<a href="https://t.me/BrickyMan" id="tgLink"></a>
+					</div>
+					<div class="contacts-wrapper_item">
+						<pre id="ghLogo"></pre>
+						<a href="https://github.com/BrickyMan" id="ghLink"></a>
+					</div>
+					<div class="contacts-wrapper_item">
+						<pre id="phLogo"></pre>
+						<a href="tel:+79772623965" id="phLink"></a>
+					</div>
+					<div class="contacts-wrapper_item">
+						<pre id="mlLogo"></pre>
+						<a href="mailto:lekkot@yandex.ru" id="mlLink"></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="terminal-lang" id="langSwitcher">
+				<p>lang:</p>
+				<button id="engBtn" class="current-language"">eng</button>
+				<button id="rusBtn">rus</button>
+			</div>
+
+		</div>
+
+		<div id="exitPopup" style="display: none;">
+			<fieldset>
+				<legend>Are you sure?</legend>
+				<div class="exit-wrapper">
+					<button id="exitYes">&lt; Yes &gt;</button>
+					<button id="exitNo">&lt; No &gt;</button>
+				</div>
+			</fieldset>
+		</div>
+
+	</main>
+	<!-- <p id="t"></p> -->
+	<script src="js/main.js"></script>
+	<script src='js/home-terminal.js'></script>
+	<script src="js/bio-terminal.js"></script>
+	<script src="js/works-terminal.js"></script>
+	<script src="js/contact-termianl.js"></script>
+</body>
+</html>

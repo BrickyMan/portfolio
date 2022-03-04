@@ -1,5 +1,5 @@
 let	worksLaunched = false,
-	landingBtn = document.querySelector('#listBtnLanding'),
+	uptoBtn = document.querySelector('#listBtnUpto'),
 	caBtn = document.querySelector('#listBtnCa'),
 	chatBtn = document.querySelector('#listBtnChat'),
 	fdfBtn = document.querySelector('#listBtnFdf'),
@@ -8,23 +8,30 @@ let	worksLaunched = false,
 	worksPreText = document.querySelector('#worksPreText'),
 	workIsTyping = false,
 	workDescription = document.querySelector('#workDescription'),
-	landingImg = document.querySelector('#landingImg'),
+	uptoImg = document.querySelector('#uptoImg'),
 	caImg = document.querySelector('#caImg'),
 	chatImg = document.querySelector('#chatImg'),
 	fdfImg = document.querySelector('#fdfImg'),
 	workBtns = document.querySelector('#workBtns'),
 	workDemo = document.querySelector('#workDemo'),
 	workLink = document.querySelector('#workLink');
+
+let	uptoTextEng = 'Name:  Upto.\nTools: HTML, CSS (Sass), JavaScript.\nAbout: This is minimalistic landing page of a young, dynamically developing company. For real.',
+	uptoTextRus = 'Название:    Upto.\nИнструменты: HTML, CSS (Sass), JavaScript.\nОписание:    Это минималистчный лендинг молодой и динамично развивающейся компании. Действительно молодой и динамично развивающейся.';
+
+let	upto1 = '  __  __     ______   ______\n /\\ \\/\\ \\   /\\  == \\ /\\__  _\\ ______\n \\ \\ \\_\\ \\  \\ \\  _-/ \\/_/\\ \\/ \\  __ \\\n  \\ \\_____\\  \\ \\_\\      \\ \\_\\  \\ \\_\\ \\\n   \\/_____/   \\/_/       \\/_/   \\_____\\',
+	upto3 = '             ______   ______   ______\n __  __     /\\  == \\ /\\__  _\\ /\\  __ \\\n \\ \\ \\ \\    \\ \\  _-/ \\/_/\\ \\/ \\ \\ \\/\\ \\\n  \\ \\_\\ \\    \\ \\_\\      \\ \\_\\  \\ \\_____\\\n   \\_____\\    \\/_/       \\/_/   \\/_____/',
+	upto2 = '  __  __     ______            ______\n /\\ \\/\\ \\   /\\  == \\ ______   /\\  __ \\\n \\ \\ \\_\\ \\  \\ \\  _-/ \\__  _\\  \\ \\ \\/\\ \\\n  \\ \\_____\\  \\ \\_\\      \\ \\    \\ \\_____\\\n   \\/_____/   \\/_/       \\_\\    \\/_____/';
 	
-let	caTextEng = 'Name: 	Cellular automaton\nTools:  HTML, CSS, JS.\nAbout:  Cellular automaton sandbox that allows to experiment with different parameters and combinations. By default it simulates Game of Life by John Convey.',
-	caTextRus = 'Название:    Клеточный автомат\nИнструменты: HTML, CSS, JS.\nОписание:    Песочница клеточных автоматов, позволяющая эксперементировать с различными параметрами и комбинациями. По умолчанию происходит симуляция автомата "Игра Жизнь" Джона Конвея.';
+let	caTextEng = 'Name:  Cellular automaton.\nTools: HTML, CSS, Canvas, JavaScript.\nAbout: Cellular automaton sandbox that allows to experiment with different parameters and combinations. By default it simulates Game of Life by John Convey.',
+	caTextRus = 'Название:    Клеточный автомат.\nИнструменты: HTML, CSS, Canvas, JavaScript.\nОписание:    Песочница клеточных автоматов, позволяющая эксперементировать с различными параметрами и комбинациями. По умолчанию происходит симуляция автомата "Игра Жизнь" Джона Конвея.';
 
 let ca1 = '\n            []\n      []    []\n         [] []\n',
 	ca2 = '\n      []\n         [] []\n      [] []\n',
 	ca3 = '\n         []\n            []\n      [] [] []\n';
 
-let	fdfTextEng = 'Name:  FDF\nTools: C, Makefile, .h-files.\nAbout: A 21-School project. Isometric visualisation of landscape parsed from any file with height map. Demo version is an JS-adaptation of this project with additional functionality.',
-	fdfTextRus = 'Название:    FDF\nИнструменты: C, Makefile, .h-files.\nОписание:    Проект Школы 21. Визуализация изометрической проекции ландшафта получаемого из любого файла с картой высот путём парсинга. Демонстрационная версия является JS-адаптацией данного проекта с дополнительным функционалом.';
+let	fdfTextEng = 'Name:  FDF.\nTools: Canvas, JavaScript.\nAbout: A 21-School project. Isometric visualisation of landscape parsed from any file with height map. This version is an JS-adaptation of a school project with additional functionality.',
+	fdfTextRus = 'Название:    FDF.\nИнструменты: Canvas, JavaScript.\nОписание:    Проект Школы 21. Визуализация изометрической проекции ландшафта получаемого из любого файла с картой высот путём парсинга. Данная версия является JS-адаптацией школьного проекта с дополнительным функционалом.';
 
 let	fdf1 = '    _/\\/\\/\\/\\/\\/\\__/\\/\\/\\/\\/\\____/\\/\\/\\/\\/\\/\\_\n   _/\\/\\__________/\\/\\____/\\/\\__/\\/\\_________ \n  _/\\/\\/\\/\\/\\____/\\/\\____/\\/\\__/\\/\\/\\/\\/\\___  \n _/\\/\\__________/\\/\\____/\\/\\__/\\/\\_________   \n_/\\/\\__________/\\/\\/\\/\\/\\____/\\/\\_________    ',
 	fdf2 = '    _/\\/\\/\\/\\/\\/\\__/\\/\\/\\/\\/\\____/\\/\\/\\/\\/\\/\\_\n   _/\\/\\____________/\\____/\\/\\__/\\/\\_________ \n  _/\\/\\/\\/\\/\\____/\\/\\____/\\/\\__/\\/\\/\\/\\/\\___  \n _/\\/\\__________/\\/\\____/\\/\\__/\\/\\_________   \n___/\\__________/\\/\\/\\/\\/\\____/\\/\\______/\\_    ',
@@ -34,21 +41,21 @@ let state = 0;
 timer = setInterval(() => {
 	if (state == 0) {
 		state = 1;
-		// landingImg.innerHTML = landing1;
+		uptoImg.innerHTML = upto1;
 		caImg.innerHTML = ca1;
 		// chatImg.innerHTML = chat1;
 		fdfImg.innerHTML = fdf1;
 	}
 	else if (state == 1) {
 		state = 2;
-		// landingImg.innerHTML = landing2;
+		uptoImg.innerHTML = upto2;
 		caImg.innerHTML = ca2;
 		// chatImg.innerHTML = chat2;
 		fdfImg.innerHTML = fdf2;
 	}
 	else {
 		state = 0;
-		// landingImg.innerHTML = landing3;
+		uptoImg.innerHTML = upto3;
 		caImg.innerHTML = ca3;
 		// chatImg.innerHTML = chat3;
 		fdfImg.innerHTML = fdf3;
@@ -56,7 +63,7 @@ timer = setInterval(() => {
 }, 500);
 
 function hideWorkAnimations() {
-	landingImg.classList.remove('works-img_active');
+	uptoImg.classList.remove('works-img_active');
 	caImg.classList.remove('works-img_active');
 	chatImg.classList.remove('works-img_active');
 	fdfImg.classList.remove('works-img_active');
@@ -86,24 +93,24 @@ function cancelWorkTyping() {
 	workBtns.removeAttribute('hidden');
 }
 
-// landingBtn.onclick = () => {
-// 	if (activeWork != 'landing' && !workIsTyping) {
-// 		workBtns.setAttribute('hidden', '');
-// 		workIsTyping = true;
-// 		landingBtn.classList.add('active-work-btn');
-// 		hideWorkAnimations();
-// 		clearWorkInfo();
-// 		landingImg.classList.add('works-img_active');
-// 		workDemo.setAttribute('href', 'https://brickyman.github.io/Cellular-automaton/');
-// 		workLink.setAttribute('href', 'https://github.com/BrickyMan/Cellular-automaton');
-// 		if (language == 'eng') {
-// 			terminalType(workDescription, fdfTextEng, 10, cancelWorkTyping);
-// 		}
-// 		else {
-// 			terminalType(workDescription, fdfTextRus, 10, cancelWorkTyping);
-// 		}
-// 	}
-// }
+uptoBtn.onclick = () => {
+	if (activeWork != 'upto' && !workIsTyping) {
+		workBtns.setAttribute('hidden', '');
+		workIsTyping = true;
+		uptoBtn.classList.add('active-work-btn');
+		hideWorkAnimations();
+		clearWorkInfo();
+		uptoImg.classList.add('works-img_active');
+		workDemo.setAttribute('href', 'https://brickyman.github.io/Upto/');
+		workLink.setAttribute('href', 'https://github.com/BrickyMan/Upto');
+		if (language == 'eng') {
+			terminalType(workDescription, uptoTextEng, 10, cancelWorkTyping);
+		}
+		else {
+			terminalType(workDescription, uptoTextRus, 10, cancelWorkTyping);
+		}
+	}
+}
 
 caBtn.onclick = () => {
 	if (activeWork != 'ca' && !workIsTyping) {

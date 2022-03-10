@@ -277,20 +277,24 @@ nav ul li:not(.current-tab):hover {
   row-gap: 20px;
 }
 
-#exitPopup {
+#exitPopup, #failExitPopup, .screen-size-error {
   width: 300px;
-  height: 100px;
+  height: auto;
   position: absolute;
   font-size: 1rem;
   font-weight: 600;
   background-color: #1d1d1d;
   padding: 0 10px 10px 10px;
 }
-#exitPopup fieldset {
+#exitPopup fieldset, #failExitPopup fieldset, .screen-size-error fieldset {
   height: 100%;
   border-color: #5f5f5f;
 }
-#exitPopup button {
+#exitPopup fieldset p, #failExitPopup fieldset p, .screen-size-error fieldset p {
+  font-size: 14px;
+  font-weight: 300;
+}
+#exitPopup button, #failExitPopup button, .screen-size-error button {
   background-color: transparent;
   border: none;
   font-size: 1rem;
@@ -298,8 +302,12 @@ nav ul li:not(.current-tab):hover {
   padding: 2px 10px;
   cursor: pointer;
 }
-#exitPopup button:hover {
+#exitPopup button:hover, #failExitPopup button:hover, .screen-size-error button:hover {
   background-color: #8d0000;
+}
+
+.screen-size-error {
+  display: none;
 }
 
 .exit-wrapper {
@@ -308,6 +316,25 @@ nav ul li:not(.current-tab):hover {
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
+}
+
+@media screen and (max-width: 950px) {
+  #terminal {
+    display: none;
+  }
+
+  .screen-size-error {
+    display: block;
+  }
+}
+@media screen and (max-height: 800px) {
+  #terminal {
+    display: none;
+  }
+
+  .screen-size-error {
+    display: block;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

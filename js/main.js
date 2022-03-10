@@ -10,6 +10,8 @@ let	terminal = document.querySelector('#terminal'),
 	exitPopup = document.querySelector('#exitPopup'),
 	exitYes = document.querySelector('#exitYes'),
 	exitNo = document.querySelector('#exitNo'),
+	failExitPopup = document.querySelector('#failExitPopup'),
+	failExitBtn = document.querySelector('#failExitBtn'),
 	lagnSw = document.querySelector('#langSwitcher'),
 	engBtn = document.querySelector('#engBtn'),
 	rusBtn = document.querySelector('#rusBtn'),
@@ -80,7 +82,9 @@ exitBtn.onclick = () => {
 }
 
 exitYes.onclick = () => {
-	window.close();
+	// window.close();
+	exitPopup.setAttribute('style', 'display: none;');
+	failExitPopup.setAttribute('style', 'display: block;');
 }
 
 exitNo.onclick = () => {
@@ -91,6 +95,10 @@ terminal.onclick = () => {
 	if (homeField.classList.contains('current-field') && !homeInput.hasAttribute('readonly')) {
 		homeInput.focus();
 	}
+}
+
+failExitBtn.onclick = () => {
+	failExitPopup.setAttribute('style', 'display: none;');
 }
 
 // Перезапуск
@@ -106,6 +114,9 @@ function reLaunch() {
 	}
 	if (worksField.classList.contains('current-field')) {
 		worksLaunch();
+	}
+	if (language == 'eng') {
+
 	}
 }
 

@@ -82,7 +82,7 @@ exitBtn.onclick = () => {
 }
 
 exitYes.onclick = () => {
-	// window.close();
+	window.close();
 	exitPopup.setAttribute('style', 'display: none;');
 	failExitPopup.setAttribute('style', 'display: block;');
 }
@@ -114,9 +114,6 @@ function reLaunch() {
 	}
 	if (worksField.classList.contains('current-field')) {
 		worksLaunch();
-	}
-	if (language == 'eng') {
-
 	}
 }
 

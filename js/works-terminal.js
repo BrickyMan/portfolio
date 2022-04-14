@@ -1,7 +1,7 @@
 let	worksLaunched = false,
 	uptoBtn = document.querySelector('#listBtnUpto'),
 	caBtn = document.querySelector('#listBtnCa'),
-	chatBtn = document.querySelector('#listBtnChat'),
+	sliderBtn = document.querySelector('#listBtnSlider'),
 	fdfBtn = document.querySelector('#listBtnFdf'),
 	stopAnimation = false,
 	activeWork = '0',
@@ -10,7 +10,7 @@ let	worksLaunched = false,
 	workDescription = document.querySelector('#workDescription'),
 	uptoImg = document.querySelector('#uptoImg'),
 	caImg = document.querySelector('#caImg'),
-	chatImg = document.querySelector('#chatImg'),
+	sliderImg = document.querySelector('#sliderImg'),
 	fdfImg = document.querySelector('#fdfImg'),
 	workBtns = document.querySelector('#workBtns'),
 	workDemo = document.querySelector('#workDemo'),
@@ -30,6 +30,13 @@ let ca1 = '\n            []\n      []    []\n         [] []\n',
 	ca2 = '\n      []\n         [] []\n      [] []\n',
 	ca3 = '\n         []\n            []\n      [] [] []\n';
 
+let	sliderTextEng = 'Name:  Bricksman Slider.\nTools: HTML, CSS, JavaScript.\nAbout: This is my project of adaptive, customizable slider, that easy to add to anyone\'s web-page.',
+	sliderTextRus = 'Название:    Bricksman Slider.\nИнструменты: HTML, CSS, JavaScript.\nОписание:    Это мой проект адаптивного, настраиваемого слайдера, который легко подключить к чьему-либо сайту.';
+
+let slider1 = ' ______________\n|              |\n| <  slider  > |\n|______________|',
+	slider2 = ' ______________\n|         |    |\n| <  slide|  > |\n|_________|____|',
+	slider3 = ' ______________\n|    |         |\n| <  |    slide|\n|____|_________|';
+
 let	fdfTextEng = 'Name:  FDF.\nTools: Canvas, JavaScript.\nAbout: This is a JS adaptation of the School 21 project, the essence of which is to create an isometric visualization of the landscape using a height map. In this version, the heightmap is dynamically modified by generating pseudo-random values, thus simulating the behavior of a liquid surface. Also in the upper right corner there is a button to start the wave simulation.',
 	fdfTextRus = 'Название:    FDF.\nИнструменты: Canvas, JavaScript.\nОписание:    Это JS-адаптация проекта Школы 21 суть которого в создании изометрической визуализации ландшафта по карте высот. В данной версии карта высот динамически изменяется путём псевдослучайной генерации значений, таким образом имитируя поведение поверхности жидкости. Также в верхнем правом углу есть кнопка для запуска симуляции волны.';
 
@@ -43,21 +50,21 @@ timer = setInterval(() => {
 		state = 1;
 		uptoImg.innerHTML = upto1;
 		caImg.innerHTML = ca1;
-		// chatImg.innerHTML = chat1;
+		sliderImg.innerHTML = slider1;
 		fdfImg.innerHTML = fdf1;
 	}
 	else if (state == 1) {
 		state = 2;
 		uptoImg.innerHTML = upto2;
 		caImg.innerHTML = ca2;
-		// chatImg.innerHTML = chat2;
+		sliderImg.innerHTML = slider2;
 		fdfImg.innerHTML = fdf2;
 	}
 	else {
 		state = 0;
 		uptoImg.innerHTML = upto3;
 		caImg.innerHTML = ca3;
-		// chatImg.innerHTML = chat3;
+		sliderImg.innerHTML = slider3;
 		fdfImg.innerHTML = fdf3;
 	}
 }, 500);
@@ -65,7 +72,7 @@ timer = setInterval(() => {
 function hideWorkAnimations() {
 	uptoImg.classList.remove('works-img_active');
 	caImg.classList.remove('works-img_active');
-	chatImg.classList.remove('works-img_active');
+	sliderImg.classList.remove('works-img_active');
 	fdfImg.classList.remove('works-img_active');
 }
 
@@ -132,25 +139,24 @@ caBtn.onclick = () => {
 	}
 }
 
-// chatBtn.onclick = () => {
-// 	if (activeWork != 'chat' && !workIsTyping) {
-// 		workBtns.setAttribute('hidden', '');
-// 		workIsTyping = true;
-// 		chatBtn.classList.add('active-work-btn');
-// 		hideWorkAnimations();
-// 		clearWorkInfo();
-// 		chatImg.classList.add('works-img_active');
-// 		workDemo.setAttribute('href', 'https://brickyman.github.io/Cellular-automaton/');
-// 		workLink.setAttribute('href', 'https://github.com/BrickyMan/Cellular-automaton');
-// 		if (language == 'eng') {
-// 			terminalType(workDescription, fdfTextEng, 10, cancelWorkTyping);
-// 		}
-// 		else {
-// 			terminalType(workDescription, fdfTextRus, 10, cancelWorkTyping);
-// 		}
-// 		terminalType(workDescription, fdfText, 10, cancelWorkTyping);
-// 	}
-// }
+sliderBtn.onclick = () => {
+	if (activeWork != 'slider' && !workIsTyping) {
+		workBtns.setAttribute('hidden', '');
+		workIsTyping = true;
+		sliderBtn.classList.add('active-work-btn');
+		hideWorkAnimations();
+		clearWorkInfo();
+		sliderImg.classList.add('works-img_active');
+		workDemo.setAttribute('href', 'https://brickyman.github.io/BriSlider/');
+		workLink.setAttribute('href', 'https://github.com/BrickyMan/BriSlider');
+		if (language == 'eng') {
+			terminalType(workDescription, sliderTextEng, 10, cancelWorkTyping);
+		}
+		else {
+			terminalType(workDescription, sliderTextRus, 10, cancelWorkTyping);
+		}
+	}
+}
 
 fdfBtn.onclick = () => {
 	if (activeWork != 'fdf' && !workIsTyping) {

@@ -5,7 +5,7 @@ let	logoOutput = document.querySelector('#logo'),
 	homeLaunched = false;
 
 // texts
-let	lsbrkmnTxtEng = '---------------------------\nname:     Kotenko Alexey\nlocation: Moscow region, Shchyolkovo\nage:      23\nvocation: frontend-developer\nspeech:   ru, ua, eng\ndream:    to develop self-driving cars\n\nDo you like my portfolio? [y/n]';
+let	lsbrkmnTxtEng = '---------------------------\nname:     Kotenko Alexey\nlocation: Russia, Moscow region, Shchyolkovo\nage:      23\nvocation: frontend-developer\nspeech:   ru, ua, eng\ndream:    to develop self-driving cars\n\nDo you like my portfolio? [y/n]';
 let	lsbrkmnTxtRus = '---------------------------\nимя:         Котенко Алексей\nрегион:      Московская область, Щёлково\nвозраст:     23\nнаправление: фронтенд-разработка\nязыки:       рус, укр, англ\nмечта:       разрабатывать беспилотные автомобили\n\nВам нравится моё портфолио? [д/н]';
 let	logoFull = " ____                       __       __                                            \n/\\  _`\\          __        /\\ \\     /\\ \\               /'\\_/`\\                     \n\\ \\ \\L\\ \\  _ __ /\\_\\    ___\\ \\ \\/'\\ \\ \\/      ____    /\\      \\     __      ___    \n \\ \\  _ <'/\\`'__\\/\\ \\  /'___\\ \\ , <  \\/      /',__\\   \\ \\ \\__\\ \\  /'__`\\  /' _ `\\  \n  \\ \\ \\L\\ \\ \\ \\/ \\ \\ \\/\\ \\__/\\ \\ \\\\`\\       /\\__, `\\   \\ \\ \\_/\\ \\/\\ \\L\\.\\_/\\ \\/\\ \\ \n   \\ \\____/\\ \\_\\  \\ \\_\\ \\____\\\\ \\_\\ \\_\\     \\/\\____/    \\ \\_\\\\ \\_\\ \\__/.\\_\\ \\_\\ \\_\\ \n    \\/___/  \\/_/   \\/_/\\/____/ \\/_/\\/_/      \\/___/      \\/_/ \\/_/\\/__/\\/_/\\/_/\\/_/";
 let logoShorted = "  ____                       __       __             \n /\\  _`\\          __        /\\ \\     /\\ \\            \n \\ \\ \\L\\ \\  _ __ /\\_\\    ___\\ \\ \\/'\\ \\ \\/      ____  \n  \\ \\  _ <'/\\`'__\\/\\ \\  /'___\\ \\ , <  \\/      /',__\\ \n   \\ \\ \\L\\ \\ \\ \\/ \\ \\ \\/\\ \\__/\\ \\ \\\\`\\       /\\__, `\\\n    \\ \\____/\\ \\_\\  \\ \\_\\ \\____\\\\ \\_\\ \\_\\     \\/\\____/\n     \\/___/  \\/_/   \\/_/\\/____/ \\/_/\\/_/      \\/___/ \n                                                     \n  /'\\_/`\\                                            \n /\\      \\     __      ___                           \n \\ \\ \\__\\ \\  /'__`\\  /' _ `\\                         \n  \\ \\ \\_/\\ \\/\\ \\L\\.\\_/\\ \\/\\ \\                        \n   \\ \\_\\\\ \\_\\ \\__/.\\_\\ \\_\\ \\_\\                       \n    \\/_/ \\/_/\\/__/\\/_/\\/_/\\/_/                       ";
@@ -20,10 +20,10 @@ homeInput.addEventListener('keydown', (event) => {
 		if ((homeInput.value == 'y' && language == 'eng') || (homeInput.value == 'д' && language == 'rus')) {
 			homeInput.setAttribute('readonly', '');
 			if (language == 'eng') {
-				terminalType(homeAnswer, 'Thank you so much!', 10, nothingToDo);
+				terminalType(homeAnswer, 'Thank you! I like you too! ;)', 10, nothingToDo);
 			}
 			else {
-				terminalType(homeAnswer, 'Спасибо большое!', 10, nothingToDo);
+				terminalType(homeAnswer, 'Спасибо! Ты тоже мне нравишься! ;)', 10, nothingToDo);
 			}
 			return;
 		}
@@ -31,10 +31,10 @@ homeInput.addEventListener('keydown', (event) => {
 		{
 			homeInput.setAttribute('readonly', '');
 			if (language == 'eng') {
-				terminalType(homeAnswer, 'Unknown command "n". Try "y" next time.', 10, nothingToDo);
+				terminalType(homeAnswer, 'I\'ll try better next time! :(', 10, nothingToDo);
 			}
 			else {
-				terminalType(homeAnswer, 'Неизвестная команда "н". В следующий раз попробуйте ответить "д".', 10, nothingToDo);
+				terminalType(homeAnswer, 'Буду стараться лучше! :(', 10, nothingToDo);
 			}
 			return;
 		}

@@ -9,6 +9,27 @@ let	lsbrkmnTxtEng = '---------------------------\nname:     Kotenko Alexey\nloca
 let	lsbrkmnTxtRus = '---------------------------\nимя:         Котенко Алексей\nрегион:      Московская область, Щёлково\nвозраст:     23\nнаправление: фронтенд-разработка\nязыки:       рус, укр, англ\nмечта:       разрабатывать беспилотные автомобили\n\nВам нравится моё портфолио? [д/н]';
 let	logoFull = " ____                       __       __                                            \n/\\  _`\\          __        /\\ \\     /\\ \\               /'\\_/`\\                     \n\\ \\ \\L\\ \\  _ __ /\\_\\    ___\\ \\ \\/'\\ \\ \\/      ____    /\\      \\     __      ___    \n \\ \\  _ <'/\\`'__\\/\\ \\  /'___\\ \\ , <  \\/      /',__\\   \\ \\ \\__\\ \\  /'__`\\  /' _ `\\  \n  \\ \\ \\L\\ \\ \\ \\/ \\ \\ \\/\\ \\__/\\ \\ \\\\`\\       /\\__, `\\   \\ \\ \\_/\\ \\/\\ \\L\\.\\_/\\ \\/\\ \\ \n   \\ \\____/\\ \\_\\  \\ \\_\\ \\____\\\\ \\_\\ \\_\\     \\/\\____/    \\ \\_\\\\ \\_\\ \\__/.\\_\\ \\_\\ \\_\\ \n    \\/___/  \\/_/   \\/_/\\/____/ \\/_/\\/_/      \\/___/      \\/_/ \\/_/\\/__/\\/_/\\/_/\\/_/";
 let logoShorted = "  ____                       __       __             \n /\\  _`\\          __        /\\ \\     /\\ \\            \n \\ \\ \\L\\ \\  _ __ /\\_\\    ___\\ \\ \\/'\\ \\ \\/      ____  \n  \\ \\  _ <'/\\`'__\\/\\ \\  /'___\\ \\ , <  \\/      /',__\\ \n   \\ \\ \\L\\ \\ \\ \\/ \\ \\ \\/\\ \\__/\\ \\ \\\\`\\       /\\__, `\\\n    \\ \\____/\\ \\_\\  \\ \\_\\ \\____\\\\ \\_\\ \\_\\     \\/\\____/\n     \\/___/  \\/_/   \\/_/\\/____/ \\/_/\\/_/      \\/___/ \n                                                     \n  /'\\_/`\\                                            \n /\\      \\     __      ___                           \n \\ \\ \\__\\ \\  /'__`\\  /' _ `\\                         \n  \\ \\ \\_/\\ \\/\\ \\L\\.\\_/\\ \\/\\ \\                        \n   \\ \\_\\\\ \\_\\ \\__/.\\_\\ \\_\\ \\_\\                       \n    \\/_/ \\/_/\\/__/\\/_/\\/_/\\/_/                       ";
+let isFullLogo = NaN;
+
+if (window.innerWidth > 560) {
+	logoOutput.innerHTML = logoFull;
+	isFullLogo = true;
+}
+else {
+	logoOutput.innerHTML = logoShorted;
+	isFullLogo = false;
+}
+
+window.onresize = () => {
+	if (window.innerWidth > 560 && !isFullLogo) {
+		logoOutput.innerHTML = logoFull;
+		isFullLogo = true;
+	}
+	else if (window.innerWidth <= 560 && isFullLogo) {
+		logoOutput.innerHTML = logoShorted;
+		isFullLogo = false;
+	}
+}
 
 function homeInputFocus() {
 	homeInput.removeAttribute('readonly');
@@ -31,10 +52,10 @@ homeInput.addEventListener('keydown', (event) => {
 		{
 			homeInput.setAttribute('readonly', '');
 			if (language == 'eng') {
-				terminalType(homeAnswer, 'I\'ll try better next time! :(', 10, nothingToDo);
+				terminalType(homeAnswer, 'Unknown command "n". Try "y" next time!', 10, nothingToDo);
 			}
 			else {
-				terminalType(homeAnswer, 'Буду стараться лучше! :(', 10, nothingToDo);
+				terminalType(homeAnswer, 'Неизвестная команда "н". Попробуйте ответить "д" в следующий раз!', 10, nothingToDo);
 			}
 			return;
 		}
@@ -51,7 +72,6 @@ function homeLaunch() {
 	homeAnswer.innerHTML = '';
 	homeInput.setAttribute('readonly', '');
 	homeInput.value = '';
-	logoOutput.innerHTML = logoFull;
 	if (language == 'eng') {
 		terminalType(lsbrkmnOutput, lsbrkmnTxtEng, 10, homeInputFocus);
 	}

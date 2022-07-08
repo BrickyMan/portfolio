@@ -15,6 +15,8 @@ let	terminal = document.querySelector('#terminal'),
 	lagnSw = document.querySelector('#langSwitcher'),
 	engBtn = document.querySelector('#engBtn'),
 	rusBtn = document.querySelector('#rusBtn'),
+	langState = document.querySelector('#terminalLangState'),
+	loadingSymbols = ['|', '/', '-', '\\'],
 	isTyping = false,
 	language = 'eng';
 
@@ -23,16 +25,19 @@ function nothingToDo() {}
 
 // Постепенный ввод текста с последующим вызовом функции action() в конце
 function terminalType(target, text, delay, action) {
-	let i = 0;
 	isTyping = true;
+	langState.style.display = 'block';
+	let i = 0;
 	let	timer = setInterval(() => {
 		lagnSw.classList.add('lang-switch_disabled');
 		isTyping = true;
+		langState.style.display = 'block';
 		target.innerHTML += text[i];
 		if (i == text.length - 1) {
 			clearInterval(timer);
 			timer = 0;
 			isTyping = false;
+			langState.style.display = 'none';
 			lagnSw.classList.remove('lang-switch_disabled');
 			action();
 			return;
@@ -135,3 +140,10 @@ rusBtn.onclick = () => {
 		reLaunch();
 	}
 }
+
+let loadingFrame = 0;
+setInterval(() => {
+	langState.innerHTML = 'Procedure ' + loadingSymbols[loadingFrame++];
+	if(loadingFrame > 3)
+		loadingFrame = 0;
+}, 200);

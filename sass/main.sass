@@ -68,6 +68,7 @@ main
 	// more retro 5 6 9 10
 	background-size: cover
 	background-position: center
+	padding: 10px
 
 header
 	width: 100%
@@ -135,9 +136,12 @@ nav
 	&-field:not(.current-field)
 		display: none
 	&-field
-		height: calc(100% - 35px)
-		padding: 0 20px
-		// overflow-y: scroll
+		height: calc(100% - 70px)
+		padding: 0 20px 40px 20px
+		overflow-y: scroll
+		scrollbar-width: none
+		&::-webkit-scrollbar
+			width: 0
 	&-input
 		background-color: transparent
 		border: none
@@ -146,7 +150,13 @@ nav
 		cursor: default
 	&-lang
 		width: 100%
-		padding: 10px 20px
+		height: 35px
+		display: flex
+		align-items: center
+		justify-content: space-between
+		padding: 0 10px
+		background-color: rgba(0, 0, 0, 0.95)
+		background: linear-gradient(318deg, rgba(0,17,23,0.8) 0%, rgba(0,45,64,0.8) 54%, rgba(0,75,91,0.8) 100%)
 		position: absolute
 		bottom: 0
 		& p
@@ -159,6 +169,7 @@ nav
 			font-weight: 500
 			color: #ffffff
 			padding: 2px 10px
+			// margin: 0 5px
 			cursor: pointer
 			&:hover
 				background-color: #005d6d
@@ -166,6 +177,20 @@ nav
 			&.current-language
 				color: #ffffff
 				background-color: #ff9900
+
+.lang-switch_disabled
+	cursor: default
+	& p
+		color: rgba(255, 255, 255, 0.4)
+	& button
+		cursor: default
+		color: rgba(255, 255, 255, 0.4)	
+		&:hover
+			background-color: transparent
+			color: rgba(255, 255, 255, 0.4)
+		&.current-language
+			color: rgba(255, 255, 255, 0.4)
+			background-color: rgba(255, 153, 0, 0.4)
 
 .works
 	&-list
@@ -175,17 +200,28 @@ nav
 		&_active
 			display: block
 
-.lang-switch_disabled
-	opacity: 0.7
-	cursor: default
-	& button
-		cursor: default
-		&:hover
-			background-color: transparent
-			color: #ffffff
-		&.current-language
-			color: #ffffff
-			background-color: #ff9900
+.work
+	&-list
+		display: flex
+		flex-wrap: wrap
+	&-item
+		width: 130px
+		height: 130px
+		display: flex
+		flex-direction: column
+		align-items: center
+		margin: 35px
+		cursor: pointer
+		& p
+			color: #cacaca
+			padding: 0
+		&:hover .work-item_name
+			color: rgb(43, 135, 255)
+		&_icon
+			font-size: 10px
+			margin-bottom: 10px
+		&_name
+			text-align: center
 	
 #homeField
 	background: linear-gradient(143deg, rgba(112,50,153,0.9) 0%, rgba(149,21,21,0.95) 50%, rgba(177,124,48,0.9) 100%)
@@ -267,13 +303,36 @@ nav
 	align-items: flex-end
 
 @media screen and (max-width: 950px)
-	#terminal
-		display: none
-	.screen-size-error
-		display: block
+	// .screen-size-warning
+	// 	display: block
+	#logo, .contacts-icon
+		font-size: 10px
 
-@media screen and (max-height: 800px)
-	#terminal
-		display: none
-	.screen-size-error
-		display: block
+@media screen and (max-width: 650px)
+	*, .terminal-lang button
+		font-size: 12px
+	nav ul li
+		width: 90px
+		font-size: 14px
+	.work-item
+		margin: 10px
+	.contacts-wrapper
+		grid-template-columns: 1fr
+
+@media screen and (max-width: 450px)
+	main
+		padding: 0
+	nav ul li
+		width: auto
+		min-width: 65px
+		font-size: 14px
+	.terminal
+		&-field
+			height: calc(100% - 35px)
+			padding: 0 5px 30px 5px
+	#logo
+		font-size: 8px
+
+// @media screen and (max-height: 800px)
+// 	.screen-size-warning
+// 		display: block

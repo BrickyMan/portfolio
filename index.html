@@ -43,7 +43,7 @@
 
 			<div class="terminal-field" id="worksField">
 				<p class="terminal-pre"><span>guest@BricksMan-portfolio</span>: ~$ sh works</p>
-				<p id="worksPreText">Choose a project:</p>
+				<!-- <p id="worksPreText">Choose a project:</p>
 				<div class="works-list">
 					<button id="listBtnUpto" class="works-list_btn">&lt; Upto - landing &gt;</button>
 					<button id="listBtnCa" class="works-list_btn">&lt; Automaton sandbox &gt;</button>
@@ -58,35 +58,49 @@
 				<div id="workBtns" hidden>
 					<a target="_blank" id="workDemo" href="#">&lt; Demo &gt;</a>
 					<a target="_blank" id="workLink" href="#">&lt; GitHub &gt;</a>
+				</div> -->
+				<div class="work-list">
+					<div class="work-item">
+						<p class="work-item_icon"></p>
+						<p class="work-item_name">Upto Landing</p>	
+					</div>
+					<div class="work-item">
+						<p class="work-item_icon"></p>
+						<p class="work-item_name">Game of Life</p>	
+					</div>
 				</div>
+				<p class="work-description"></p>
 			</div>
 			
 			<div class="terminal-field" id="contactsField">
 				<p class="terminal-pre"><span>guest@BricksMan-portfolio</span>: ~$ cat contacts</p>
 				<div class="contacts-wrapper">
 					<div class="contacts-wrapper_item">
-						<pre id="tgLogo"></pre>
+						<pre class="contacts-icon" id="tgLogo"></pre>
 						<a href="https://t.me/BrickyMan" id="tgLink"></a>
 					</div>
 					<div class="contacts-wrapper_item">
-						<pre id="ghLogo"></pre>
+						<pre class="contacts-icon" id="ghLogo"></pre>
 						<a href="https://github.com/BrickyMan" id="ghLink"></a>
 					</div>
 					<div class="contacts-wrapper_item">
-						<pre id="phLogo"></pre>
+						<pre class="contacts-icon" id="phLogo"></pre>
 						<a href="tel:+79772623965" id="phLink"></a>
 					</div>
 					<div class="contacts-wrapper_item">
-						<pre id="mlLogo"></pre>
+						<pre class="contacts-icon" id="mlLogo"></pre>
 						<a href="mailto:lekkot@yandex.ru" id="mlLink"></a>
 					</div>
 				</div>
 			</div>
 
 			<div class="terminal-lang" id="langSwitcher">
-				<p>lang:</p>
-				<button id="engBtn" class="current-language"">eng</button>
-				<button id="rusBtn">rus</button>
+				<div class="terminal-lang_switcher">
+					<p>lang:</p>
+					<button id="engBtn" class="current-language"">eng</button>
+					<button id="rusBtn">rus</button>
+				</div>
+				<p id="terminalLangState" style="display: none;"></p>
 			</div>
 
 		</div>
@@ -122,7 +136,7 @@
 	<script src="js/main.js"></script>
 	<script src='js/home-terminal.js'></script>
 	<script src="js/bio-terminal.js"></script>
-	<script src="js/works-terminal.js"></script>
+	<script src="js/works-terminal2.js"></script>
 	<script src="js/contact-termianl.js"></script>
 </body>
 </html>

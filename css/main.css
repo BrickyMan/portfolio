@@ -171,6 +171,16 @@ nav ul li:not(.current-tab):hover {
   font-weight: 600;
   cursor: default;
 }
+.terminal-input_btns button {
+  background-color: transparent;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: rgba(0, 93, 109, 0.8);
+  color: #9ff500;
+  padding: 4px 25px;
+  cursor: pointer;
+}
 .terminal-lang {
   width: 100%;
   height: 35px;
@@ -224,16 +234,6 @@ nav ul li:not(.current-tab):hover {
   background-color: rgba(255, 153, 0, 0.4);
 }
 
-.works-list {
-  margin-bottom: 20px;
-}
-.works-img {
-  display: none;
-}
-.works-img_active {
-  display: block;
-}
-
 .work-list {
   display: flex;
   flex-wrap: wrap;
@@ -261,6 +261,14 @@ nav ul li:not(.current-tab):hover {
 .work-item_name {
   text-align: center;
 }
+.work-links {
+  display: flex;
+}
+.work-links-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 
 #homeField {
   background: linear-gradient(143deg, rgba(112, 50, 153, 0.9) 0%, rgba(149, 21, 21, 0.95) 50%, rgba(177, 124, 48, 0.9) 100%);
@@ -280,19 +288,24 @@ nav ul li:not(.current-tab):hover {
 #worksField span {
   color: #2b87ff;
 }
-#worksField button, #worksField a {
+#worksField a {
   background-color: transparent;
   border: none;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 400;
   color: #ff9900;
+  margin: 8px 0;
   padding: 2px 10px;
   cursor: pointer;
 }
-#worksField button:hover, #worksField a:hover {
+#worksField a:hover {
   background-color: #005d6d;
   color: #9ff500;
+}
+
+#linksTree {
+  padding-top: 0;
 }
 
 #contactsField {
@@ -320,7 +333,7 @@ nav ul li:not(.current-tab):hover {
   row-gap: 20px;
 }
 
-#exitPopup, #failExitPopup, .screen-size-error {
+#exitPopup, #failExitPopup, #screenSizeWarningPopup {
   width: 300px;
   height: auto;
   position: absolute;
@@ -329,15 +342,15 @@ nav ul li:not(.current-tab):hover {
   background-color: #1d1d1d;
   padding: 0 10px 10px 10px;
 }
-#exitPopup fieldset, #failExitPopup fieldset, .screen-size-error fieldset {
+#exitPopup fieldset, #failExitPopup fieldset, #screenSizeWarningPopup fieldset {
   height: 100%;
   border-color: #5f5f5f;
 }
-#exitPopup fieldset p, #failExitPopup fieldset p, .screen-size-error fieldset p {
+#exitPopup fieldset p, #failExitPopup fieldset p, #screenSizeWarningPopup fieldset p {
   font-size: 14px;
   font-weight: 300;
 }
-#exitPopup button, #failExitPopup button, .screen-size-error button {
+#exitPopup button, #failExitPopup button, #screenSizeWarningPopup button {
   background-color: transparent;
   border: none;
   font-size: 1rem;
@@ -345,12 +358,8 @@ nav ul li:not(.current-tab):hover {
   padding: 2px 10px;
   cursor: pointer;
 }
-#exitPopup button:hover, #failExitPopup button:hover, .screen-size-error button:hover {
+#exitPopup button:hover, #failExitPopup button:hover, #screenSizeWarningPopup button:hover {
   background-color: #8d0000;
-}
-
-.screen-size-error {
-  display: none;
 }
 
 .exit-wrapper {
@@ -367,10 +376,6 @@ nav ul li:not(.current-tab):hover {
   }
 }
 @media screen and (max-width: 650px) {
-  *, .terminal-lang button {
-    font-size: 12px;
-  }
-
   nav ul li {
     width: 90px;
     font-size: 14px;
@@ -385,6 +390,10 @@ nav ul li:not(.current-tab):hover {
   }
 }
 @media screen and (max-width: 450px) {
+  *, .terminal-lang button {
+    font-size: 12px;
+  }
+
   main {
     padding: 0;
   }
@@ -402,6 +411,17 @@ nav ul li:not(.current-tab):hover {
 
   #logo {
     font-size: 8px;
+  }
+
+  .work-links-inner {
+    padding-bottom: 3px;
+  }
+
+  #worksField a {
+    font-size: 12px;
+    margin: 5px 0;
+    background-color: #005d6d;
+    color: #9ff500;
   }
 }
 

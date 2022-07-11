@@ -18,8 +18,8 @@ let	terminal = document.querySelector('#terminal'),
 	langState = document.querySelector('#terminalLangState'),
 	loadingSymbols = ['|', '/', '-', '\\'],
 	isTyping = false,
-	language = 'eng';
-
+	language = 'eng',
+	isMobile;
 // Функция-пустышка
 function nothingToDo() {}
 
@@ -141,9 +141,23 @@ rusBtn.onclick = () => {
 	}
 }
 
+// Надпись о протекающей процедуре во время печати текста и невозможности переключить язык
 let loadingFrame = 0;
 setInterval(() => {
 	langState.innerHTML = 'Procedure ' + loadingSymbols[loadingFrame++];
 	if(loadingFrame > 3)
 		loadingFrame = 0;
 }, 200);
+
+// Определение размера экрана при загрузке
+if (window.innerWidth < 450)
+		isMobile = true;
+	else
+		isMobile = false;
+// Определение размера при ресайзе
+window.onresize = () => {
+	if (window.innerWidth < 450)
+		isMobile = true;
+	else
+		isMobile = false;
+}

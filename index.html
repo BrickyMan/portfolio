@@ -30,9 +30,13 @@
 			<div class="terminal-field current-field" id="homeField">
 				<p class="terminal-pre"><span>guest@BricksMan-portfolio</span>: ~$ logo</p>
 				<pre id="logo"></pre>
-				<p class="terminal-pre"><span>guest@BricksMan-portfolio</span>: ~$ about me</p>
+				<p class="terminal-pre"><span>guest@BricksMan-portfolio</span>: ~$ ls -brkmn</p>
 				<pre id="homeLsbrkmn"></pre>
 				<input class="terminal-input" id="homeInput" type="text" maxlength="15" readonly>
+				<div class="terminal-input_btns" id="homeBtns" style="display: none">
+					<button id="homeBtnY">y</button>
+					<button id="homeBtnN">n</button>
+				</div>
 				<pre id="homeAnswer"></pre>
 			</div>
 
@@ -43,22 +47,6 @@
 
 			<div class="terminal-field" id="worksField">
 				<p class="terminal-pre"><span>guest@BricksMan-portfolio</span>: ~$ sh works</p>
-				<!-- <p id="worksPreText">Choose a project:</p>
-				<div class="works-list">
-					<button id="listBtnUpto" class="works-list_btn">&lt; Upto - landing &gt;</button>
-					<button id="listBtnCa" class="works-list_btn">&lt; Automaton sandbox &gt;</button>
-					<button id="listBtnSlider" class="works-list_btn">&lt; My slider &gt;</button>
-					<button id="listBtnFdf" class="works-list_btn">&lt; FDF - visualization &gt;</button>
-				</div>
-				<pre class="works-img" id="uptoImg"></pre>
-				<pre class="works-img" id="caImg"></pre>
-				<pre class="works-img" id="sliderImg"></pre>
-				<pre class="works-img" id="fdfImg"></pre>
-				<pre id="workDescription"></pre>
-				<div id="workBtns" hidden>
-					<a target="_blank" id="workDemo" href="#">&lt; Demo &gt;</a>
-					<a target="_blank" id="workLink" href="#">&lt; GitHub &gt;</a>
-				</div> -->
 				<div class="work-list">
 					<div class="work-item">
 						<p class="work-item_icon"></p>
@@ -69,7 +57,14 @@
 						<p class="work-item_name">Game of Life</p>	
 					</div>
 				</div>
-				<p class="work-description"></p>
+				<p id="workDescription"></p>
+				<div class="work-links">
+					<p id="linksTree"></p>
+					<div class="work-links-inner">
+						<a id="workLinkDemo" href="" style="display: none">Check demo</a>
+						<a id="workLinkGH" href="" style="display: none">Visit GitHub repo</a>
+					</div>
+				</div>
 			</div>
 			
 			<div class="terminal-field" id="contactsField">
@@ -125,18 +120,11 @@
 			</fieldset>
 		</div>
 
-		<div class="screen-size-error">
-			<fieldset>
-				<legend>Oops!</legend>
-				<p>It seems you use small-screen device. Sorry, unfortunatly this web-site can't be mobile-friendly and supports only screens (windows) with minimum width 950px and height 810px.</p>
-			</fieldset>
-		</div>
-
 	</main>
 	<script src="js/main.js"></script>
 	<script src='js/home-terminal.js'></script>
 	<script src="js/bio-terminal.js"></script>
-	<script src="js/works-terminal2.js"></script>
+	<script src="js/works-terminal.js"></script>
 	<script src="js/contact-termianl.js"></script>
 </body>
 </html>

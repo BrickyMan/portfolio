@@ -1,6 +1,9 @@
 let	logoOutput = document.querySelector('#logo'),
 	lsbrkmnOutput = document.querySelector('#homeLsbrkmn'),
 	homeInput = document.querySelector('#homeInput'),
+	homeBtns = document.querySelector('#homeBtns'),
+	homeBtnY = document.querySelector('#homeBtnY'),
+	homeBtnN = document.querySelector('#homeBtnN'),
 	homeAnswer = document.querySelector('#homeAnswer'),
 	homeLaunched = false;
 
@@ -31,13 +34,31 @@ window.onresize = () => {
 	}
 }
 
+// Проверка на то, показывать кнопки или поле ввода
+if (isMobile) {
+	homeInput.style.display = 'none';
+}
+
 function homeInputFocus() {
-	homeInput.removeAttribute('readonly');
-	homeInput.focus();
+	if (!isMobile) {
+		homeInput.removeAttribute('readonly');
+		homeInput.focus();
+	}
+	else {
+		homeBtns.style.display = 'block';
+		if (language == 'eng') {
+			homeBtnY.innerHTML = 'y';
+			homeBtnN.innerHTML = 'n';
+		}
+		else {
+			homeBtnY.innerHTML = 'д';
+			homeBtnN.innerHTML = 'н';
+		}
+	}
 }
 
 homeInput.addEventListener('keydown', (event) => {
-	if (event.code == 'Enter' && !homeInput.hasAttribute('readonly')) {
+	if (event.code == 'Enter' && !homeInput.hasAttribute('readonly') && !isMobile) {
 		if ((homeInput.value == 'y' && language == 'eng') || (homeInput.value == 'д' && language == 'rus')) {
 			homeInput.setAttribute('readonly', '');
 			if (language == 'eng') {
@@ -66,12 +87,37 @@ homeInput.addEventListener('keydown', (event) => {
 	}
 })
 
+homeBtnY.onclick = () => {
+	if (!isTyping) {
+		homeAnswer.innerHTML = '';
+		if (language == 'eng') {
+			terminalType(homeAnswer, 'Thank you! I like you too! ;)', 10, nothingToDo);
+		}
+		else {
+			terminalType(homeAnswer, 'Спасибо! Ты тоже мне нравишься! ;)', 10, nothingToDo);
+		}
+	}
+}
+
+homeBtnN.onclick = () => {
+	if (!isTyping) {
+		homeAnswer.innerHTML = '';
+		if (language == 'eng') {
+			terminalType(homeAnswer, 'Unknown command "n". Try "y" next time!', 10, nothingToDo);
+		}
+		else {
+			terminalType(homeAnswer, 'Неизвестная команда "н". Попробуйте ответить "д" в следующий раз!', 10, nothingToDo);
+		}
+	}
+}
+
 function homeLaunch() {
 	homeLaunched = true;
 	lsbrkmnOutput.innerHTML = '';
 	homeAnswer.innerHTML = '';
 	homeInput.setAttribute('readonly', '');
 	homeInput.value = '';
+	homeBtns.style.display = 'none';
 	if (language == 'eng') {
 		terminalType(lsbrkmnOutput, lsbrkmnTxtEng, 10, homeInputFocus);
 	}

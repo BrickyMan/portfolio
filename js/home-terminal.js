@@ -80,6 +80,10 @@ homeInput.addEventListener('keydown', (event) => {
 			}
 			return;
 		}
+		else if (homeInput.value == '420') {
+			terminal.setAttribute('style', 'background-image: url("img/elon.gif")');
+			homeInput.value = '';
+		}
 		else {
 			homeInput.value = '';
 		}

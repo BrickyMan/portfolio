@@ -147,6 +147,8 @@ nav ul li:not(.current-tab):hover {
   position: relative;
   font-size: 1rem;
   font-weight: 600;
+  background-size: cover;
+  background-position: center;
   overflow: hidden;
 }
 .terminal-pre span {

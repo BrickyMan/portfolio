@@ -13,7 +13,7 @@ let iconsHover = ['\n__   __  ______\n\\ \\  \\ \\ \\  == \\\n \\ \\__\\ \\ \\  
 let worksDescriptionEN = ['Name:         Upto.\nDescription:  This is minimalistic landing page of an abstract company.\nSignificance: An expirience of develop following the mockup, recreation of missing graphic elements, adaptivity, selfwritten JS carousel.', 'Name:         Game of Life.\nDescription:  Customizable cellular automaton sandbox.\nSignificance: By default it simulates Game of Life by John Convey. I\'ve explored an approach of functional programming and work with Canvas in this project, and also this project requiered processes optimizing to engage simulation efficiency after scaling one.'];
 let worksDescriptionRU = ['Название:   Upto.\nОписание:   Минималистчный лендинг абстрактной компании.\nЗначимость: Создание по макету с высокой точностью, воссоздание недостающих графических элементов, адаптивность, самописная карусель на JS.', 'Название:   Game of Life.\nОписание:   Настраиваемая песочница клеточных автоматов.\nЗначимость: По умолчанию происходит симуляция "Игры Жизнь" Джона Конвея. В проекте я изучил для себя подход функционального программирования, работу с Canvas, проект так же потребовал оптимизацию процессов для повышения производительности при масштабировании симуляции.']
 let worksLinks = [['https://brickyman.github.io/Upto/', 'https://github.com/BrickyMan/Upto'], ['https://brickyman.github.io/Cellular-automaton/', 'https://github.com/BrickyMan/Cellular-automaton']];
-
+ 
 // Запуск раздела работ
 function worksLaunch() {
 	worksLaunched = true;
